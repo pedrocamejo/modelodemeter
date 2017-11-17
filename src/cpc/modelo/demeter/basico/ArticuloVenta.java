@@ -60,7 +60,7 @@ public class ArticuloVenta extends Producto implements IProducto{
 
 
 	public void setCodigoSIGESP(String codigoSIGESP) {
-		this.codigoSIGESP = codigoSIGESP.toUpperCase();
+		this.codigoSIGESP =  (codigoSIGESP == null? "": codigoSIGESP.toUpperCase());
 	}
 
 
