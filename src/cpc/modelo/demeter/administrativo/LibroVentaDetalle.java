@@ -289,4 +289,21 @@ public class LibroVentaDetalle implements Serializable{
 		}
 		return saldoRecibos;
 	}
+	
+
+	@Transient
+	public double getTotalImpuesto12(){
+		return documento.getTotalImpuesto12();
+	}
+
+	@Transient
+	public double getTotalImpuesto9(){
+		return documento.getTotalImpuesto9();
+	}
+	
+	@Transient
+	public double getTotalImpuesto7(){
+		return documento.getTotalImpuesto7();
+	}
+
 }

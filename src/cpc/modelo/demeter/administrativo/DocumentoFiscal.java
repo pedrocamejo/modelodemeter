@@ -197,7 +197,6 @@ public class DocumentoFiscal implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="int_idpagador")
 	public Cliente getBeneficiario() {
-		Long id2 = 2000000L; 
 		return beneficiario;
 	}
 	public void setBeneficiario(Cliente beneficiario) {
@@ -396,6 +395,48 @@ public class DocumentoFiscal implements Serializable{
 			}
 		return monto;
 	}
+
+	@Transient
+	public double getTotalImpuesto12(){
+		double monto=0;
+		if (impuestos != null)
+			for (ImpuestoDocumentoFiscal impuesto: impuestos){
+				if( new Double(impuesto.getPorcentaje()).equals(12.00d)){
+					monto += impuesto.getMonto();
+				}
+			}
+		return monto;
+	}
+
+	
+	@Transient
+	public double getTotalImpuesto9(){
+		double monto=0;
+		if (impuestos != null)
+			for (ImpuestoDocumentoFiscal impuesto: impuestos){
+				if( new Double(impuesto.getPorcentaje()).equals(9.00d)){
+					monto += impuesto.getMonto();
+				}
+			}
+		return monto;
+	}
+
+
+	
+	@Transient
+	public double getTotalImpuesto7(){
+		double monto=0;
+		if (impuestos != null)
+			for (ImpuestoDocumentoFiscal impuesto: impuestos){
+				if( new Double(impuesto.getPorcentaje()).equals(7.00d)){
+					monto += impuesto.getMonto();
+				}
+			}
+		return monto;
+	}
+
+
+	
 	
 	@Transient
 	public String getStrTotal() {
